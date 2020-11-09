@@ -33,10 +33,13 @@ _mongoose["default"].connect(mongodbUrl, {
 });
 
 var app = (0, _express["default"])();
+
 app.use(_bodyParser["default"].json());
 app.use("/api/users", _userRoute["default"]);
 app.use("/api/products", _productRoute["default"]);
 app.use("/api/orders", _orderRoute["default"]);
+
+
 app.get("/api/config/paypal", function (req, res) {
   res.send(_config["default"].PAYPAL_CLIENT_ID);
 }); //app.get("/api/products/:id", (req, res) => {
